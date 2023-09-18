@@ -1,0 +1,30 @@
+module "azure_vm" {
+  source = "./modules/AzureVM"  #provide module path even it can be anywhere like git
+  nic_name_value = "r-nic"
+  private_ip_address_allocation_value = "Dynamic"
+  public_ip_allocation_method_value = "Dynamic"
+  public_ip_name_value = "r-pip"
+  public_ip_idle_timeout_value = "30"
+  resource_group_name_value = "r-rg"
+  subnet_name_value = "r-subnet"
+  address_space_value = ["10.0.0.0/16"]
+  address_prefixes_value = ["10.0.1.0/24"]
+  location_value = "Central India"
+  delete_os_disk_on_termination_value = "true"
+  vm_name_value = "r-vm"
+  vm_size_value = "Standard_B1ls"
+  os_profile_linux_config_disable_psswd_auth_value = "false"
+  os_profile_computer_name_value = "r-host"
+  os_profile_admin_username_value = "r-admin"
+  os_profile_admin_password_value = "Password@1234"
+  storage_image_reference_offer_value = "0001-com-ubuntu-server-focal"
+  storage_image_reference_publisher_value = "Canonical"
+  storage_image_reference_sku_value = "20_04-lts"
+  storage_image_reference_version_value = "latest"
+  storage_os_disk_caching_value = "ReadWrite"
+  storage_os_disk_create_option_value = "FromImage"
+  storage_os_disk_manage_disk_type_value = "Standard_LRS"
+  storage_os_disk_name_value = "r-osdisk"
+  vnet_name_value = "r-vnet"
+  ip_config_name_value = "r-testip"
+}
